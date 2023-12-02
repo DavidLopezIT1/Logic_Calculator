@@ -1,0 +1,54 @@
+html{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    background: linear-gradient(#333333af, #3e3c3c);
+}
+.Screen_Result{
+    background-color: #3333338a;
+    width: 380px;
+    height: 40px;
+    margin:12px 6px;
+    text-align: end;
+    font-family: serif;
+    font-size: larger;
+    color: rgba(250, 235, 215, 0.735);
+    border-radius: 10px;
+}
+.Container{
+    display: inherit;
+    background: linear-gradient(rgba(0, 102, 255, 0.401), #2323239a);
+    width: 400px;
+    height: 400px;
+    border-radius: 10px;
+
+}
+.Submit_Butt_Top{
+    display: flex;
+   justify-content: space-around;
+   margin-top: 20px;
+
+}
+.Submit_Butt_Topi{
+    height: 40px;
+    width: 100px;
+}
+.Submit_Butt{
+   display: flex;
+   justify-content: space-around;
+   margin-top: 20px;
+
+}
+.Submit_Butt_Bot{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+.Submit_Butt_Boti{
+    height: 40px;
+    width: 100px;
+}
+button{
+    height: 40px;
+    width: 60px;
+}

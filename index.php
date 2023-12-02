@@ -1,125 +1,116 @@
 <?php 
-include "./forum.php";
-include "./operation.php";
+
+//include "./operation.php";
+
+        $buttons= isset($_POST["button"]) ? $_POST["button"]: null;
+        $operator= isset($_POST["Operator"]) ? $_POST["Operator"]: null;
+        $Screen= isset($_POST["Screen_Result"]) ? $_POST["Screen_Result"]: null;
+        $buttons2= isset($_POST["buttons2"]) ? $_POST["buttons2"]: null;
+        $operator2= isset($_POST["operator2"]) ? $_POST["operator2"]: null;
+
+
+        if($operator != null){
+            if($operator =="="){
+                switch ($operator2) {
+                    case '+':
+                        $Screen = ($buttons2 + $Screen);
+                        break;
+                    
+                        case '-':
+                            $Screen = ($buttons2 - $Screen);
+                            break;
+
+                            case '*':
+                                $Screen = ($buttons2 * $Screen);
+                                break;
+
+                                case '/':
+                                    $Screen = ($buttons2 / $Screen);
+                                    break;
+                }
+            }
+            else{ 
+                $operator2 = $operator;
+                $buttons2 = $Screen;
+                $Screen= null;
+            }
+            
+        }
+       
+        else{
+            $Screen = $Screen.$buttons;
+        }
+        
+
  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Logic Calculator</title>
 
 </head>
 <body>
 
     <header>
-    <div>
-        <h1>Calculadora</h1>
-    </div>
+   
     </header>
 
 <main>
 
-    <form action="index.php" method="get">
-        <div class="Screen" name="Screen">
-            <output name="Screen_Result">
-            <?php 
-    if(isset($Button0)){
-        echo $Button0;
-    }
-    if(isset($Button1)){
-        echo $Button1;
-    }
-    if(isset($Button2)){
-        echo $Button2;
-    }
-    if(isset($Button3)){
-        echo $Button3;
-    }
-    if(isset($Button4)){
-        echo $Button4;
-    }
-    if(isset($Button5)){
-        echo $Button5;
-    }
-    if(isset($Button6)){
-        echo $Button6;
-    }
-    if(isset($Button7)){
-        echo $Button7;
-    }
-    if(isset($Button8)){
-        echo $Button8;
-    }
-    if(isset($Button9)){
-        echo $Button9;
-    }
-    if(isset($ButtonDelete)){
-        echo $ButtonDelete;
-    }
-    if(isset($ButtonDiv)){
-        echo $ButtonDiv;
-    }
-    if(isset($ButtonX)){
-        echo $ButtonX;
-    }
-    if(isset($ButtonMas)){
-        echo $ButtonMas;
-    }
-    if(isset($ButtonMenos)){
-        echo $ButtonMenos;
-    }
-    if(isset($ButtonPunto)){
-        echo $ButtonPunto;
-    }
-    if(isset($ResultResult)){
-        echo $ResultResult;
-    }
-    if(isset($ScreenResult)){
-        echo $ScreenResult;
-    }
-    
+
+    <form action="index.php" method="post">
+        <div class="Container" name="Container">
+            <input class="Screen_Result" type="text" name="Screen_Result" value="<?php echo $Screen; ?>" >
+
+            <?php
     ?>
 
-            </output>
-        </div>
+            
+       
 
-       <div>
-        <button name="button_C">C</button>
-        <button name="button_/">/</button>
-        <button name="button_Delete">&larr;</button>
+       <div class="Submit_Butt_Top">
+        <button class="Submit_Butt_Topi" type="submit" name="Operator" value= "borrar">C</button>
+        <button class="Submit_Butt_Topi" type="submit" name="Operator" value="/">/</button>
+        <button class="Submit_Butt_Topi" type="submit" name="Operator" value="&larr;">&larr;</button>
        </div>
 
-       <div>
-        <button name="button_7">7</button>
-        <button name="button_8">8</button>
-        <button name="button_9">9</button>
-        <button name="button_X">*</button>
+       <div class="Submit_Butt" >
+        <button type="submit" name="button" value="7">7</button>
+        <button type="submit" name="button" value="8">8</button>
+        <button type="submit" name="button" value="9">9</button>
+        <button class="Submit_Butt_Der" type="submit" name="Operator" value="*">*</button>
        </div>
 
-       <div>
-        <button name="button_4">4</button>
-        <button name="button_5">5</button>
-        <button name="button_6">6</button>
-        <button name="button_mas">+</button>
+       <div class="Submit_Butt" >
+        <button type="submit" name="button" value="4">4</button>
+        <button type="submit" name="button" value="5">5</button>
+        <button type="submit" name="button" value="6">6</button>
+        <button class="Submit_Butt_Der" type="submit" name="Operator" value="+">+</button>
        </div>
 
-       <div>
-        <button name="button_1" value="1">1</button>
-        <button name="button_2" value="2">2</button>
-        <button name="button_3" value="3">3</button>
-        <button name="button_menos">-</button>
+       <div class="Submit_Butt" >
+        <button type="submit" name="button" value="1">1</button>
+        <button type="submit" name="button" value="2">2</button>
+        <button type="submit" name="button" value="3">3</button>
+        <button class="Submit_Butt_Der" type="submit" name="Operator" value="-">-</button>
        </div>
 
-       <div>
-        <button name="button_0">0</button>
-        <button name="button_punto">.</button>
-        <!-- <button name="button_3">3</button> -->
-        <button name="button_Result">&equals;</button>
+       <div class="Submit_Butt_Bot" >
+        <button class="Submit_Butt_Boti" type="submit" name="button" value="0">0</button>
+        <button class="Submit_Butt_Boti" type="submit" name="button" value=".">.</button>
+        <button class="Submit_Butt_Boti" type="submit" name="Operator" value= "="> = </button>
        </div>
-
-    </form>
+    </div>
+            <div>
+                <input type="hidden" name="buttons2" value="<?php echo $buttons2;?>">
+                <input type="hidden" name="operator2" value="<?php echo $operator2;?>">
+            </div>
+     </form>
    
 </main>
 
