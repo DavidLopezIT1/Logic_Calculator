@@ -1,13 +1,10 @@
 <?php 
-
 //include "./operation.php";
-
         $buttons= isset($_POST["button"]) ? $_POST["button"]: null;
         $operator= isset($_POST["Operator"]) ? $_POST["Operator"]: null;
         $Screen= isset($_POST["Screen_Result"]) ? $_POST["Screen_Result"]: null;
         $buttons2= isset($_POST["buttons2"]) ? $_POST["buttons2"]: null;
         $operator2= isset($_POST["operator2"]) ? $_POST["operator2"]: null;
-
 
         if($operator != null){
             if($operator =="="){
@@ -15,35 +12,27 @@
                     case '+':
                         $Screen = ($buttons2 + $Screen);
                         break;
-                    
-                        case '-':
-                            $Screen = ($buttons2 - $Screen);
-                            break;
-
-                            case '*':
-                                $Screen = ($buttons2 * $Screen);
-                                break;
-
-                                case '/':
-                                    $Screen = ($buttons2 / $Screen);
+                            case '-':
+                                $Screen = ($buttons2 - $Screen);
                                     break;
+                                     case '*':
+                                           $Screen = ($buttons2 * $Screen);
+                                               break;
+                                                    case '/':
+                                                       $Screen = ($buttons2 / $Screen);
+                                                          break;
                 }
             }
             else{ 
                 $operator2 = $operator;
                 $buttons2 = $Screen;
                 $Screen= null;
-            }
-            
+            }   
         }
-       
         else{
             $Screen = $Screen.$buttons;
         }
-        
-
  ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,23 +44,11 @@
 
 </head>
 <body>
-
-    <header>
-   
-    </header>
-
 <main>
-
 
     <form action="index.php" method="post">
         <div class="Container" name="Container">
-            <input class="Screen_Result" type="text" name="Screen_Result" value="<?php echo $Screen; ?>" >
-
-            <?php
-    ?>
-
-            
-       
+            <input class="Screen_Result" type="text" name="Screen_Result" value="<?php echo $Screen; ?>" >   
 
        <div class="Submit_Butt_Top">
         <button class="Submit_Butt_Topi" type="submit" name="Operator" value= "borrar">C</button>
@@ -114,7 +91,5 @@
    
 </main>
 
-    <footer></footer>
-    
 </body>
 </html>
